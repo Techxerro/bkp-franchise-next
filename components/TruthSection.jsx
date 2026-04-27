@@ -29,7 +29,7 @@ const items = [
   },
   {
     icon: <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 8L6.5 13.5L19 1" stroke="#62CD41" stroke-width="2" stroke-linecap="round"/>
+          <path d="M1 8L6.5 13.5L19 1" stroke="#62CD41" strokeWidth="2" strokeLinecap="round"/>
           </svg>,
     variant: 'green',
     title: 'What BKP gets right',
@@ -69,7 +69,9 @@ export default function TruthSection() {
         <div className="bkp-truth__callout fade-up delay-2">
           <div className="bkp-truth__callout-text">
             &ldquo;The only thing better than a great product is a great product with a{' '}
-            <strong>story people want to be part of.</strong> BKP has both — and it&apos;s
+            <strong>story people want to be part of.</strong>
+            {' '}
+             BKP has both — and it&apos;s
             been earning repeat customers since 1994.&rdquo;
           </div>
           <div className="bkp-truth__callout-sub">

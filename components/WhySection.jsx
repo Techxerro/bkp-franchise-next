@@ -17,8 +17,8 @@ const cards = [
   },
   {
     num: '04',
-    title: '3 Formats, One System',
-    body: 'Mall, High Street, or Container. One proven operational playbook, three different real estate footprints. You choose what fits your market and capital — not the other way around.',
+    title: '4  Formats, One System',
+    body: 'Mall, High Street, Food Truck or Container. One proven operational playbook, three different real estate footprints. You choose what fits your market and capital — not the other way around.',
   },
   {
     num: '05',
@@ -65,7 +65,7 @@ export default function WhySection() {
       <div className="bkp-why__proof fade-up">
         {proofStats.map((s, i) => (
           <>
-            <div className="bkp-why__proof-item" key={s.label}>
+            <div className="bkp-why__proof-item" key={i}>
               <div className="bkp-why__proof-val">{s.val}</div>
               <div className="bkp-why__proof-label">{s.label}</div>
             </div>

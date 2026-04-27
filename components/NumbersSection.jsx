@@ -2,7 +2,7 @@
 'use client';
 import { useState } from 'react';
 
-const tabs = ['Mall Location', 'High Street', 'Container'];
+const tabs = ['Mall Location', 'High Street', 'Container/Food-Truck'];
 
 const data = {
   mall: {

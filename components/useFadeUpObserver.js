@@ -1,15 +1,10 @@
-// hooks/useFadeUpObserver.js
+// components/FadeUpObserver.js
+'use client';
 import { useEffect } from 'react';
 
-/**
- * Attaches an IntersectionObserver to all `.fade-up` elements
- * and adds the `.visible` class when they scroll into view.
- * Call this once inside the root layout or page.
- */
-export default function useFadeUpObserver() {
+export default function FadeUpObserver() {
   useEffect(() => {
     const elements = document.querySelectorAll('.fade-up');
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -21,9 +16,9 @@ export default function useFadeUpObserver() {
       },
       { threshold: 0.1 }
     );
-
     elements.forEach((el) => observer.observe(el));
-
     return () => observer.disconnect();
   }, []);
+
+  return null; // renders nothing
 }

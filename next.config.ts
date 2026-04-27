@@ -16,11 +16,9 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
+  ...(process.env.NODE_ENV === 'production' && { output: 'export' }),
+  images: { unoptimized: true },
+  allowedDevOrigins: ['192.168.1.22'], // ← add this
 };
 
 module.exports = nextConfig;

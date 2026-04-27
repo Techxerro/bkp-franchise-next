@@ -339,7 +339,7 @@ p{
 
   &__right {
     height: 100vh;
-    background: url('../components/assets/herosec.webp');
+    background: url('../components/assets/herosec1.png');
     background-size:cover ;
     position: relative;
     overflow: hidden;
@@ -1220,7 +1220,7 @@ p{
   &__form-sub {
     font-size: 0.8rem;
     color: var(--muted);
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; 
     line-height: 1.6;
   }
 }

@@ -59,7 +59,7 @@ export default function CtaSection() {
                 <input
                   type="text"
                   className="bkp-form__input"
-                  placeholder="Alex"
+                  placeholder="John"
                   required
                 />
               </div>
@@ -68,7 +68,7 @@ export default function CtaSection() {
                 <input
                   type="text"
                   className="bkp-form__input"
-                  placeholder="Hormozi"
+                  placeholder="Doe"
                   required
                 />
               </div>
@@ -101,6 +101,7 @@ export default function CtaSection() {
               <option>Mall Location ($180K–$200K)</option>
               <option>High Street ($225K–$250K)</option>
               <option>Container / Mobile ($150K–$175K)</option>
+              <option>Food Truck ($120K–$150K)</option>
               <option>Not Sure Yet</option>
             </select>
 

@@ -30,7 +30,7 @@ const formats = [
     num: "02",
     label: "Format Two",
     name: "High Street",
-    size: "120–200 m²",
+    size: "1200-1600 sq feet",
     investment: "$225K–$250K",
     accentClass: "street",
     image: img2,
@@ -144,7 +144,7 @@ export default function BKPFormats() {
                     <li key={i}>
                       <div className={`format-check format-check--${f.color}`}>
                         <svg width="11" height="9" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 4.5L3.75 7.25L10 1" stroke="#4FA834" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M1 4.5L3.75 7.25L10 1" stroke="#4FA834" strokeWidth="2" strokeLinecap="round"/>
                         </svg>
                       </div>
                       {feat}

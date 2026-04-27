@@ -2,7 +2,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import useFadeUpObserver from '../hooks/useFadeUpObserver';
 
 // ── Section components ──
 import Navbar         from '../components/Navbar';
@@ -15,12 +14,9 @@ import SupportSection from '../components/SupportSection';
 import CtaSection     from '../components/CtaSection';
 import Footer         from '../components/Footer';
 
-// import useFadeUpObserver from '../hooks/useFadeUpObserver';
 import BKPPhotoGallery from '../components/imageSection';
 
 export default function FranchisePage() {
-  // Activate fade-up animations on scroll
-  useFadeUpObserver();
 
   return (
     <>

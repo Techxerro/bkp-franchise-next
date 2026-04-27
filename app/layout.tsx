@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.scss";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import BootstrapClient from '../components/BootstrapClient';
-import Head from 'next/head';
+import FadeUpObserver from '../components/useFadeUpObserver'; // ← moved to components
 
 export const metadata: Metadata = {
   title: "Big Kahuna Pizza — Franchise Partner Program",
@@ -15,18 +15,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={` h-full antialiased`}
-    >
-      <Head>
+    <html lang="en" className="h-full antialiased">
+      <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com "/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@400..800&display=swap" rel="stylesheet" />
-      </Head>
+      </head>
       <body className="min-h-full flex flex-col">
         <BootstrapClient />
+        <FadeUpObserver />
         {children}
       </body>
     </html>
