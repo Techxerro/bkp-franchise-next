@@ -49,7 +49,7 @@ export default function WhySection() {
           investors look twice at BKP.
         </h2>
       </div>
-    
+
       {/* ── Cards grid ── */}
       <div className="bkp-why__grid fade-up">
         {cards.map((c) => (
@@ -64,15 +64,10 @@ export default function WhySection() {
       {/* ── Proof bar ── */}
       <div className="bkp-why__proof fade-up">
         {proofStats.map((s, i) => (
-          <>
             <div className="bkp-why__proof-item" key={i}>
               <div className="bkp-why__proof-val">{s.val}</div>
               <div className="bkp-why__proof-label">{s.label}</div>
             </div>
-            {i < proofStats.length - 1 && (
-              <div className="bkp-why__proof-divider" key={`div-${i}`} />
-            )}
-          </>
         ))}
       </div>
     </section>
