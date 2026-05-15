@@ -22,9 +22,10 @@ const INITIAL_FORM = {
 
 export default function CtaSection() {
   const [formData, setFormData] = useState(INITIAL_FORM);
-  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
+  const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
-
+  const [showBrochurePopup, setShowBrochurePopup] = useState(false);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -36,9 +37,6 @@ export default function CtaSection() {
 
     setStatus('loading');
     setErrorMessage('');
-
-    // Log exactly what's being sent — check Network tab too
-    console.log('Submitting:', formData);
 
     try {
       const response = await axios.post(
@@ -62,8 +60,8 @@ export default function CtaSection() {
       console.log('API response:', response.data);
       setStatus('success');
       setFormData(INITIAL_FORM);
+      setShowBrochurePopup(true); // ← SHOW POPUP ON SUCCESS
     } catch (err) {
-      // Log the full server response to help debug
       console.error('Server error body:', err.response?.data);
       console.error('Status code:', err.response?.status);
 
@@ -79,11 +77,52 @@ export default function CtaSection() {
     }
   };
 
+  // ── NEW: Download handler ──
+  const handleDownloadBrochure = () => {
+    const link = document.createElement('a');
+    link.href = '/big-kahuna-franchise.pdf'; // Ensure this path is correct
+    link.download = 'Big-Kahuna-Pizza-Franchise-Brochure.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setShowBrochurePopup(false);
+  };
+
   const isSent = status === 'success';
   const isLoading = status === 'loading';
 
   return (
     <section className="bkp-cta" id="apply">
+
+      {/* ── NEW: Download Brochure Popup ── */}
+      {showBrochurePopup && (
+        <div className="fixed inset-0 bg-[#00000080] flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl p-3 max-w-md w-full text-center shadow-lg">
+            <h3 className="text-xl font-bold text-gray-800 mt-4">Download Our Brochure</h3>
+            <p className="text-gray-600 mb-2 text-sm">
+              Thank you for your interest in opening a franchise of BKP! Click below to
+              download our franchise brochure. Big Kahuna Pizza will soon connect with you.
+            </p>
+            <div className="p-4 rounded-lg flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={handleDownloadBrochure}
+                className="bg-[#F5B504] text-black px-6 py-3 rounded-2xl hover:bg-amber-400 transition ease-in-out font-bold flex-1"
+                style={{borderRadius:'6px'}}
+              >
+                Download Now
+              </button>
+              <button
+                onClick={() => setShowBrochurePopup(false)}
+                className="bg-[#DA1832] text-white px-6 py-3 rounded-2xl hover:bg-[#e41830] transition ease-in-out font-bold flex-1"
+                style={{borderRadius:'6px'}}
+              >
+                Later
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="bkp-cta__inner">
 
         {/* ── Left copy ── */}
@@ -119,7 +158,6 @@ export default function CtaSection() {
           </div>
 
           <form onSubmit={handleSubmit}>
-            {/* Name row */}
             <div className="bkp-form__row">
               <div>
                 <label className="bkp-form__label">First Name</label>
@@ -147,7 +185,6 @@ export default function CtaSection() {
               </div>
             </div>
 
-            {/* Email + Location row */}
             <div className="bkp-form__row">
               <div>
                 <label className="bkp-form__label">Email</label>
@@ -175,7 +212,6 @@ export default function CtaSection() {
               </div>
             </div>
 
-            {/* Format */}
             <label className="bkp-form__label">Format You&apos;re Considering</label>
             <select
               className="bkp-form__select"
@@ -192,7 +228,6 @@ export default function CtaSection() {
               <option value="Not Sure Yet">Not Sure Yet</option>
             </select>
 
-            {/* Capital */}
             <label className="bkp-form__label">Available Capital (approx.)</label>
             <select
               className="bkp-form__select"
@@ -208,7 +243,6 @@ export default function CtaSection() {
               <option value="$500K+">$500K+</option>
             </select>
 
-            {/* Submit */}
             <button
               type="submit"
               className={`bkp-form__submit${isSent ? ' bkp-form__submit--sent' : ''}`}
@@ -221,7 +255,6 @@ export default function CtaSection() {
                 : 'Send My Request →'}
             </button>
 
-            {/* Error */}
             {status === 'error' && (
               <p className="bkp-form__error" style={{ color: 'red', marginTop: '0.5rem' }}>
                 {errorMessage}
