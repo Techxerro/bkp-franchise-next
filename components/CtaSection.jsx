@@ -151,7 +151,7 @@ export default function CtaSection() {
 
         {/* ── Right form ── */}
         <div className="bkp-cta__form-card fade-up delay-2">
-          <div className="bkp-cta__form-title">Request Franchise Information</div>
+          <div className="bkp-cta__form-title">Request Franchise Information and download brochure</div>
           <div className="bkp-cta__form-sub">
             Fill in the form and we&apos;ll send you the full franchise kit — financials,
             operational details, and territory availability — within 24 hours.
