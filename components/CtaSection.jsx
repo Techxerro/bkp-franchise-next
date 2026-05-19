@@ -54,6 +54,7 @@ export default function CtaSection() {
             'Content-Type': 'application/json',
             Accept: 'application/json',
           },
+          timeout:30000,
         }
       );
 
