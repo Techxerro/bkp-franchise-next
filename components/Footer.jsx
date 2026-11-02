@@ -17,7 +17,7 @@ export default function Footer() {
 
       <div className="bkp-footer__copy">
         <a href="https://techxerro.com/ " target="_blank" rel="noopener noreferrer">Powered by Techxerro</a><br/>
-        © {new Date().getFullYear()} Big Kahuna&apos;s Pizza. All rights reserved.
+        © {new Date().getFullYear()} &nbsp;Big Kahuna&apos;s Pizza. All rights reserved.
       </div>
     </footer>
   );
